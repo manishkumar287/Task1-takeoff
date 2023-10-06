@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"sort"
 )
 
 type Employee struct {
@@ -36,7 +37,7 @@ var employees Employees = []Employee{{
 	PhoneNo:   "64646",
 	Role:      "Employee",
 	Salary:    41243,
-},{
+}, {
 	ID:        3,
 	FirstName: "Ravi",
 	LastName:  "Gupta",
@@ -46,7 +47,6 @@ var employees Employees = []Employee{{
 	Role:      "Manager",
 	Salary:    42413,
 }}
-
 
 var elements int = 3
 
@@ -113,6 +113,7 @@ func adminPanel() {
 		fmt.Println("3 -> UPDATE an Employee")
 		fmt.Println("4 -> VIEW an Employee Details")
 		fmt.Println("5 -> LIST all Employee")
+		fmt.Println("6 -> Print all Employee in the shorted order of there salary")
 		fmt.Println("Press ctrl + c to exit the program")
 		operation := readLine()
 
@@ -127,6 +128,8 @@ func adminPanel() {
 			viewEmployeeDetails()
 		case "5":
 			listEmployees()
+		case "6":
+			sortedPrintEmployee()
 		default:
 			fmt.Println("Invalid Input")
 			os.Exit(1)
@@ -311,6 +314,26 @@ func listEmployees() {
 	return
 }
 
+func sortedPrintEmployee() {
+
+	sort.Slice(employees, func(i, j int) bool {
+		return employees[i].Salary < employees[j].Salary
+	})
+
+	for _, employee := range employees {
+		fmt.Println("")
+		fmt.Println("So the person with id is", employee.ID)
+		fmt.Println(employee.FirstName)
+		fmt.Println(employee.LastName)
+		fmt.Println(employee.Email)
+		fmt.Println(employee.PhoneNo)
+		fmt.Println(employee.Role)
+
+	}
+	return
+
+}
+
 func nonAdminPanel() {
 	fmt.Println("Welcome to the Manager/Developer/Tester Panel 🎊")
 	fmt.Println("Please Enter your ID ")
@@ -400,7 +423,6 @@ func updateEmployeeNonAdmin(_id int) {
 
 	fmt.Println("Get the employee's email.")
 	email := readLine()
-
 
 	fmt.Println("Get the employee's role.")
 	role := readLine()
