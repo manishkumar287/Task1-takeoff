@@ -2,17 +2,17 @@
 package utils
 
 import (
-	"fmt"
+	"log"
 )
 
 func View_NonAdminDetails(employees [] Employee) {
 	for _, employee := range employees {
 		if employee.Role != "Admin" {
-			fmt.Println("So the Employee id is", employee.ID)
-			fmt.Println(employee.FirstName)
-			fmt.Println(employee.LastName)
-			fmt.Println(employee.Email)
-			fmt.Println(employee.Role)
+			log.Println("So the Employee id is", employee.ID)
+			log.Println(employee.FirstName)
+			log.Println(employee.LastName)
+			log.Println(employee.Email)
+			log.Println(employee.Role)
 		}
 	}
 	return

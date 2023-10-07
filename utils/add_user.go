@@ -2,6 +2,7 @@ package utils
 
 import (
 	"fmt"
+	"log"
 )
 
 func readLine() string {
@@ -13,25 +14,25 @@ func readLine() string {
 
 func Add_user(employees *[]Employee) {
 
-	fmt.Println("Get the employee's first name.")
+	log.Println("Get the employee's first name.")
 	firstName := readLine()
 
-	fmt.Println("Get the employee's last name.")
+	log.Println("Get the employee's last name.")
 	lastName := readLine()
 
-	fmt.Println("Get the employee's email.")
+	log.Println("Get the employee's email.")
 	email := readLine()
 
-	fmt.Println("Get the employee's password.")
+	log.Println("Get the employee's password.")
 	password := readLine()
 
-	fmt.Println("Get the employee's Phone.")
+	log.Println("Get the employee's Phone.")
 	phoneNo := readLine()
 
-	fmt.Println("Get the employee's role.")
+	log.Println("Get the employee's role.")
 	role := readLine()
 
-	fmt.Println("Get the employee's salary.")
+	log.Println("Get the employee's salary.")
 	var salary float64
 	fmt.Scanln(&salary)
 
@@ -52,11 +53,11 @@ func Add_user(employees *[]Employee) {
 	*employees = append(*employees, employee)
 
 	// Display a message to the user.
-	fmt.Println("Employee added successfully!")
+	log.Println("Employee added successfully!")
 
-	fmt.Println("List of users currently inside the organisation")
+	log.Println("List of users currently inside the organisation")
 	for _, employee := range *employees {
-		fmt.Printf("Name is %s, and id is %d", employee.FirstName, employee.ID)
+		log.Println(employee.FirstName)
 
 	}
 

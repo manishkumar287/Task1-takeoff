@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"fmt"
+	"log"
 	"sort"
 )
 
@@ -11,13 +11,13 @@ func Sorted_userBy_salary(employees []Employee) {
 	})
 
 	for _, employee := range employees {
-		fmt.Println("")
-		fmt.Println("So the person with id is", employee.ID)
-		fmt.Println(employee.FirstName)
-		fmt.Println(employee.LastName)
-		fmt.Println(employee.Email)
-		fmt.Println(employee.PhoneNo)
-		fmt.Println(employee.Role)
+		log.Println("")
+		log.Println("So the person with id is", employee.ID)
+		log.Println(employee.FirstName)
+		log.Println(employee.LastName)
+		log.Println(employee.Email)
+		log.Println(employee.PhoneNo)
+		log.Println(employee.Role)
 
 	}
 	return

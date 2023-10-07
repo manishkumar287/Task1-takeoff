@@ -2,7 +2,7 @@
 package utils
 
 import (
-	"fmt"
+	"log"
 )
 
 func NonAdmin_UpdateEmployee(employees *[] Employee,_id int) {
@@ -12,11 +12,11 @@ func NonAdmin_UpdateEmployee(employees *[] Employee,_id int) {
 		if employee.ID == _id && employee.Role != "Admin" {
 			index = i
 			updatedEmp = employee
-			fmt.Println("So the person with id is below")
-			fmt.Println(employee.FirstName)
-			fmt.Println(employee.LastName)
-			fmt.Println(employee.Email)
-			fmt.Println(employee.Role)
+			log.Println("So the person with id is below")
+			log.Println(employee.FirstName)
+			log.Println(employee.LastName)
+			log.Println(employee.Email)
+			log.Println(employee.Role)
 
 			break
 		}
@@ -24,22 +24,22 @@ func NonAdmin_UpdateEmployee(employees *[] Employee,_id int) {
 
 	// If the employee is not found, then return an error.
 	if index == -1 {
-		fmt.Println("employee not found with this id: ", _id)
+		log.Println("employee not found with this id: ", _id)
 		return
 	}
 
 	// Update the employee's information.
-	fmt.Println("To update the employee please enter these details")
-	fmt.Println("Get the employee's first name.")
+	log.Println("To update the employee please enter these details")
+	log.Println("Get the employee's first name.")
 	firstName := readLine()
 
-	fmt.Println("Get the employee's last name.")
+	log.Println("Get the employee's last name.")
 	lastName := readLine()
 
-	fmt.Println("Get the employee's email.")
+	log.Println("Get the employee's email.")
 	email := readLine()
 
-	fmt.Println("Get the employee's role.")
+	log.Println("Get the employee's role.")
 	role := readLine()
 
 	updatedEmp.FirstName = firstName

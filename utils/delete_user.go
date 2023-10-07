@@ -1,12 +1,12 @@
-
 package utils
 
 import (
 	"fmt"
+	"log"
 )
 
-func Delete_user(employees *[] Employee) {
-	fmt.Println("Please provide the id of the Person you want delete")
+func Delete_user(employees *[]Employee) {
+	log.Println("Please provide the id of the Person you want delete")
 	var _id int
 	fmt.Scanln(&_id)
 	// Find the index of the employee with the specified ID.
@@ -20,17 +20,15 @@ func Delete_user(employees *[] Employee) {
 
 	// If the employee is not found, then return.
 	if index == -1 {
-		fmt.Println("no id matched")
+		log.Println("no id matched")
 		return
 	}
 
 	// Remove the employee from the slice.
 	*employees = append((*employees)[:index], (*employees)[index+1:]...)
-	fmt.Println("List of left out employees")
-	for _, employee := range (*employees) {
-		fmt.Println(employee.FirstName)
+	log.Println("List of left out employees")
+	for _, employee := range *employees {
+		log.Println(employee.FirstName)
 	}
 
 }
-
-

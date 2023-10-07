@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"fmt"
+	"log"
 )
 
 func View_NonAdminEmployeesDetails(employees []Employee, _id int) {
@@ -10,16 +10,16 @@ func View_NonAdminEmployeesDetails(employees []Employee, _id int) {
 	for i, employee := range employees {
 		if employee.ID == _id && employee.Role != "Admin" {
 			index = i
-			fmt.Println("So the User whose id id ", _id)
-			fmt.Println(employee.FirstName)
-			fmt.Println(employee.LastName)
-			fmt.Println(employee.Email)
-			fmt.Println(employee.Role)
+			log.Println("So the User whose id id ", _id)
+			log.Println(employee.FirstName)
+			log.Println(employee.LastName)
+			log.Println(employee.Email)
+			log.Println(employee.Role)
 			break
 		}
 	}
 	if index == -1 {
-		fmt.Println("employee not found with this id: ", _id)
+		log.Println("employee not found with this id: ", _id)
 		return
 	}
 	return

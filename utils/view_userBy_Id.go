@@ -1,12 +1,12 @@
-
 package utils
 
 import (
 	"fmt"
+	"log"
 )
 
-func View_userBy_id(employees [] Employee) {
-	fmt.Println("Please enter the id of user to see its details")
+func View_userBy_id(employees []Employee) {
+	log.Println("Please enter the id of user to see its details")
 	var _id int
 	fmt.Scanln(&_id)
 
@@ -15,20 +15,18 @@ func View_userBy_id(employees [] Employee) {
 	for i, employee := range employees {
 		if employee.ID == _id {
 			index = i
-			fmt.Println("So the person with id is below")
-			fmt.Println(employee.FirstName)
-			fmt.Println(employee.LastName)
-			fmt.Println(employee.Email)
-			fmt.Println(employee.PhoneNo)
-			fmt.Println(employee.Role)
+			log.Println("So the person with id is below")
+			log.Println(employee.FirstName)
+			log.Println(employee.LastName)
+			log.Println(employee.Email)
+			log.Println(employee.PhoneNo)
+			log.Println(employee.Role)
 			break
 		}
 	}
 	if index == -1 {
-		fmt.Println("employee not found with this id: ", _id)
+		log.Println("employee not found with this id: ", _id)
 		return
 	}
 	return
 }
-
-

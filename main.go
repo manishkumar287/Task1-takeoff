@@ -3,9 +3,9 @@ package main
 import (
 	"ProjectGo/utils"
 	"fmt"
+	"log"
 	"os"
 )
-
 
 func readLine() string {
 	var input string
@@ -16,20 +16,19 @@ func readLine() string {
 
 func main() {
 	// Display the login screen
-	fmt.Println("Hello and welcome to the management system")
+	log.Println("Hello and welcome to the management system")
 
 	loginScreen()
 	selectRole()
 
-	
 }
 
-func selectRole()  {
+func selectRole() {
 	// Get the user's role
-	fmt.Println("Please select your identity")
-	fmt.Println("1 -> Admin")
-	fmt.Println("2 -> Manager/Developer/Tester")
-	fmt.Println("Press ctrl + c or any other key to exit the program")
+	log.Println("Please select your identity")
+	log.Println("1 -> Admin")
+	log.Println("2 -> Manager/Developer/Tester")
+	log.Println("Press ctrl + c or any other key to exit the program")
 
 	role := readLine()
 
@@ -42,44 +41,45 @@ func selectRole()  {
 		// employeeOperations()
 		nonAdminPanel()
 	default:
-		fmt.Println("Invalid Input")
+		log.Println("Invalid Input")
 		os.Exit(1)
 	}
-	
+
 }
 
 func loginScreen() {
-	fmt.Println("Employee Management System")
-	fmt.Println("-------------------------")
+	log.Println("Employee Management System")
+	log.Println("-------------------------")
 
-	fmt.Print("Username: ")
+	log.Print("Username: ")
 	username := readLine()
 
-	fmt.Print("Password: ")
+	log.Print("Password: ")
 	password := readLine()
 
 	// TODO: Validate the username and password
 
 	// If the username and password are valid, then log the user in
-	fmt.Println("username : ", username)
-	fmt.Println("Password : ", password)
-	fmt.Println("Login successful!")
+	log.Println("username : ", username)
+	log.Println("Password : ", password)
+	log.Println("Login successful!")
+	log.Println("-------------------------")
 
 	// adminOperations()
 }
 
 func adminPanel() {
-	fmt.Println("Welcome to the Elite Admin Panel 🎊")
+	log.Println("Welcome to the Elite Admin Panel 🎊")
 	for true {
-		fmt.Println("Please Enter your Input to Proceed...")
-		fmt.Println("1 -> ADD an Employee")
-		fmt.Println("2 -> DELETE an Employee")
-		fmt.Println("3 -> UPDATE an Employee")
-		fmt.Println("4 -> VIEW an Employee Details")
-		fmt.Println("5 -> LIST all Employee")
-		fmt.Println("6 -> Print all Employee in the shorted order of there salary")
-		fmt.Println("7 -> Go to previous Menu")
-		fmt.Println("Press ctrl + c to exit the program")
+		log.Println("Please Enter your Input to Proceed...")
+		log.Println("1 -> ADD an Employee")
+		log.Println("2 -> DELETE an Employee")
+		log.Println("3 -> UPDATE an Employee")
+		log.Println("4 -> VIEW an Employee Details")
+		log.Println("5 -> LIST all Employee")
+		log.Println("6 -> Print all Employee in the shorted order of there salary")
+		log.Println("7 -> Go to previous Menu")
+		log.Println("Press ctrl + c to exit the program")
 		operation := readLine()
 
 		switch operation {
@@ -98,7 +98,7 @@ func adminPanel() {
 		case "7":
 			selectRole()
 		default:
-			fmt.Println("Invalid Input")
+			log.Println("Invalid Input")
 			os.Exit(1)
 			break
 		}
@@ -107,7 +107,7 @@ func adminPanel() {
 
 }
 
-func addEmployee() {	
+func addEmployee() {
 	utils.Add_user(&utils.EmployeesList)
 }
 
@@ -133,18 +133,18 @@ func sortedPrintEmployee() {
 }
 
 func nonAdminPanel() {
-	fmt.Println("Welcome to the Manager/Developer/Tester Panel 🎊")
-	fmt.Println("Please Enter your ID ")
+	log.Println("Welcome to the Manager/Developer/Tester Panel 🎊")
+	log.Println("Please Enter your ID ")
 	var _id int
 	fmt.Scanln(&_id)
 
 	for true {
-		fmt.Println("Please Enter your Input to Proceed...")
-		fmt.Println("1 -> View your Details")
-		fmt.Println("2 -> Update your details")
-		fmt.Println("3 -> view other Employees details")
-		fmt.Println("4 -> Go to Previous Menu")
-		fmt.Println("Press ctrl + c to exit the program")
+		log.Println("Please Enter your Input to Proceed...")
+		log.Println("1 -> View your Details")
+		log.Println("2 -> Update your details")
+		log.Println("3 -> view other Employees details")
+		log.Println("4 -> Go to Previous Menu")
+		log.Println("Press ctrl + c to exit the program")
 		operation := readLine()
 
 		switch operation {
@@ -158,7 +158,7 @@ func nonAdminPanel() {
 			selectRole()
 
 		default:
-			fmt.Println("Invalid Input")
+			log.Println("Invalid Input")
 			os.Exit(1)
 			break
 		}
@@ -169,12 +169,12 @@ func nonAdminPanel() {
 
 func viewEmployeeDetailsNonAdmin(_id int) {
 
-	utils.View_NonAdminEmployeesDetails(utils.EmployeesList,_id)
+	utils.View_NonAdminEmployeesDetails(utils.EmployeesList, _id)
 
 }
 
 func updateEmployeeNonAdmin(_id int) {
-	utils.NonAdmin_UpdateEmployee(&utils.EmployeesList,_id)
+	utils.NonAdmin_UpdateEmployee(&utils.EmployeesList, _id)
 }
 
 func viewNonAdminDetails() {
